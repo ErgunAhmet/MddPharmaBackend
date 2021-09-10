@@ -11,5 +11,12 @@ import java.util.List;
 public interface MedicationService {
     Medication addNewMedication(String name, Type type, Status status);
     List<Medication> getAllMedications();
-    Medication update(String name, Type type, Status status);
+    Medication updateStatus(int id, Status status);
+    List<Medication> getMedicationByName(String name);
+    List<Medication> getMedicationByNameAndType(String name, Type type);
+    List<Medication> getMedicationByNameAndStatus(String name, Status status);
+    List<Medication> getMedicationByNameAndTypeAndStatus(String name, Type type, Status status);
+    List<Medication> getMedicationByStatus(Status status);
+    List<Medication> getMedicationByType(Type type);
+    List<Medication> getMedicationByTypeAndStatus(Type type, Status status);
 }

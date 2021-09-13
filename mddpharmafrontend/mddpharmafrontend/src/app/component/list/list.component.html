@@ -1,0 +1,47 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>kanker op</h2>
+  </div>
+  <div class="">
+
+  </div>
+<!--  <form (ngSubmit)="onFormSubmit()">-->
+      <input type="text" ngModel placeholder="medicatie" name="name" [(ngModel)]="name">
+    <p>
+      <input type="radio" value="DEBLISTER" name="type" [(ngModel)]="type"> ontblistering
+      <input type="radio" value="PREPERATION" name="type" [(ngModel)]="type"> bereiding
+    </p>
+    <p>
+      <input type="radio" value="PRESENT" name="status" [(ngModel)]="status" > Aanwezig
+      <input type="radio" value="ALMOST_EMPTY" name="status" [(ngModel)]="status"> bijna op
+      <input type="radio" value="EMPTY" name="status" [(ngModel)]="status"> op
+      <input type="radio" value="URGENT" name="status" [(ngModel)]="status"> dringend
+    </p>
+    <button (click)="onFormSubmit()">zoek</button>
+<!--  </form>-->
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>naam</th>
+        <th>type</th>
+        <th>status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let medication of medicationList | async">
+        <td>{{medication.name}}</td>
+        <td>{{medication.type}}</td>
+        <select name="status" id="status" [(ngModel)]="medication.status"  (ngModelChange)="changeStatus(medication.id, medication.status)">
+          <option value="PRESENT">aanwezig</option>
+          <option value="ALMOST_EMPTY">bijna op</option>
+          <option value="EMPTY">op</option>
+          <option value="URGENT">dringend</option>
+        </select>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

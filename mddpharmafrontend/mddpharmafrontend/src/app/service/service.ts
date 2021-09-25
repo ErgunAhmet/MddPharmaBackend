@@ -39,4 +39,10 @@ export class Service {
   changeMedicationStatus(id: number, status: string) {
     return this.http.post<Medication>(`${this.baseUrl}/updateStatus/${id}/${status}`, null);
   }
+  addMedication(medication: Medication) {
+    return this.http.post<Medication>(`${this.baseUrl}/add`, medication);
+  }
+  deleteMedication(id: number) {
+    return this.http.delete(`${this.baseUrl}/delete/${id}`)
+  }
 }

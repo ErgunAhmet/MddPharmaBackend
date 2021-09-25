@@ -37,4 +37,10 @@ export class ListComponent implements OnInit {
   changeStatus(id: number, status: string) {
     this.medicationService.changeMedicationStatus(id, status).subscribe();
   }
+
+  delete(id: number, name: string) {
+    if(window.confirm(`wil je ${name} verwijderen?`)) {
+      this.medicationService.deleteMedication(id).subscribe();
+    }
+  }
 }

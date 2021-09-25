@@ -1,0 +1,12 @@
+
+<input type="text" ngModel placeholder="medicatie" name="name" [(ngModel)]="name">
+<p>
+  <input type="radio" value="DEBLISTER" name="type" [(ngModel)]="type"> ontblistering
+  <input type="radio" value="PREPERATION" name="type" [(ngModel)]="type"> bereiding
+</p>
+<p>
+  <input type="radio" value="PRESENT" name="status" [(ngModel)]="status" > Aanwezig
+  <input type="radio" value="ALMOST_EMPTY" name="status" [(ngModel)]="status"> bijna op
+  <input type="radio" value="EMPTY" name="status" [(ngModel)]="status"> op
+  <input type="radio" value="URGENT" name="status" [(ngModel)]="status"> dringend
+  <button (click)="onFormSubmit()">voeg toe</button>

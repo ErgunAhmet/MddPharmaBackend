@@ -10,7 +10,8 @@ import { LoginComponent } from './component/login/login.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthenticationService} from './service/authentication.service';
-import {HttpInterceptorCustom} from './interceptor/HttpInterceptorService';
+import {CustomHttpInterceptor} from './interceptor/custom-http.interceptor';
+import { AddmedicationComponent } from './component/addmedication/addmedication.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpInterceptorCustom} from './interceptor/HttpInterceptorService';
     ListComponent,
     MenuComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    AddmedicationComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +30,10 @@ import {HttpInterceptorCustom} from './interceptor/HttpInterceptorService';
     FormsModule
   ],
   providers: [
+    AuthenticationService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpInterceptorCustom,
+      useClass: CustomHttpInterceptor,
       multi: true
     }
   ],

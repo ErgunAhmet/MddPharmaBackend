@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>kanker op</h2>
+    <h2>MddPharma</h2>
   </div>
   <div class="">
 
@@ -16,8 +16,8 @@
       <input type="radio" value="ALMOST_EMPTY" name="status" [(ngModel)]="status"> bijna op
       <input type="radio" value="EMPTY" name="status" [(ngModel)]="status"> op
       <input type="radio" value="URGENT" name="status" [(ngModel)]="status"> dringend
+      <button (click)="onFormSubmit()">zoek</button>
     </p>
-    <button (click)="onFormSubmit()">zoek</button>
 <!--  </form>-->
   <div class="panel-body">
     <table class="table table-striped">
@@ -38,7 +38,7 @@
           <option value="EMPTY">op</option>
           <option value="URGENT">dringend</option>
         </select>
-
+        <td><button (click)="delete(medication.id, medication.name)">verwijder</button></td>
       </tr>
       </tbody>
     </table>

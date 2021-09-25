@@ -1,9 +1,9 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div><a href="https://www.javaguides.net" class="navbar-brand">JavaGuides</a></div>
-    <ul class="navbar-nav navbar-collapse justify-content-end">
+    <ul class="navbar-nav navbar-collapse justify-content-start">
       <li>
-        <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
+        <a class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
+        <a class="nav-link"   (click)="navigate()">AddMedication</a>
       </li>
     </ul>
   </nav>
